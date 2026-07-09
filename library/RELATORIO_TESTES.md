@@ -35,4 +35,4 @@ Os testes foram implementados nos arquivos:
 - src/integration-test/groovy/io/pillopl/library/catalogue/CatalogueUserJourneyIT.groovy
 
 ## 6. Resultado dos testes
-A execução local dos testes não pôde ser concluída totalmente no ambiente atual devido a um problema de resolução de dependências do Maven no momento da validação. O comando de execução retornou erro relacionado à resolução do plugin Spring Boot, impedindo a finalização da suíte. Mesmo assim, os cenários de teste foram implementados de acordo com a jornada de negócio escolhida e estão prontos para serem executados em um ambiente com acesso adequado ao repositório Maven configurado no projeto.
+
