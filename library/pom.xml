@@ -49,6 +49,11 @@
             <name>Spring GA Repository</name>
             <url>https://repo.spring.io/plugins-release/</url>
         </pluginRepository>
+        <pluginRepository>
+            <id>repository.spring.milestone</id>
+            <name>Spring Milestone Repository</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
     </pluginRepositories>
 
     <dependencies>
