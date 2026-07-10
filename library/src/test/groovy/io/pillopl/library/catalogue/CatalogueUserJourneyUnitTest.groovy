@@ -15,10 +15,10 @@ class CatalogueUserJourneyUnitTest extends Specification {
         given:
             catalogueDatabase.saveNew(_ as Book) >> null
             catalogueDatabase.saveNew(_ as BookInstance) >> null
-            catalogueDatabase.findBy(new ISBN('9780201485677')) >> Option.of(new Book('9780201485677', 'Eric Evans', 'Domain-Driven Design'))
+            catalogueDatabase.findBy(new ISBN('0201485672')) >> Option.of(new Book('0201485672', 'Eric Evans', 'Domain-Driven Design'))
         when:
-            def addBookResult = catalogue.addBook('Eric Evans', 'Domain-Driven Design', '9780201485677')
-            def addInstanceResult = catalogue.addBookInstance('9780201485677', BookType.Restricted)
+            def addBookResult = catalogue.addBook('Eric Evans', 'Domain-Driven Design', '0201485672')
+            def addInstanceResult = catalogue.addBookInstance('0201485672', BookType.Restricted)
         then:
             addBookResult.isSuccess()
             addBookResult.get() == Result.Success
@@ -29,9 +29,9 @@ class CatalogueUserJourneyUnitTest extends Specification {
 
     def 'should reject adding an instance when the book is absent from the catalogue'() {
         given:
-            catalogueDatabase.findBy(new ISBN('9780000000000')) >> Option.none()
+            catalogueDatabase.findBy(new ISBN('0000000000')) >> Option.none()
         when:
-            def result = catalogue.addBookInstance('9780000000000', BookType.Restricted)
+            def result = catalogue.addBookInstance('0000000000', BookType.Restricted)
         then:
             result.isSuccess()
             result.get() == Result.Rejection
@@ -40,7 +40,7 @@ class CatalogueUserJourneyUnitTest extends Specification {
 
     def 'should fail when the business data is invalid'() {
         when:
-            def result = catalogue.addBook('Eric Evans', '   ', '9780201485677')
+            def result = catalogue.addBook('Eric Evans', '   ', '0201485672')
         then:
             result.isFailure()
     }
